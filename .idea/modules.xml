@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$USER_HOME$/Downloads/auditoria/auditoria.iml" filepath="$USER_HOME$/Downloads/auditoria/auditoria.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fccpd.iml" filepath="$PROJECT_DIR$/fccpd.iml" />
+      <module fileurl="file://$USER_HOME$/Downloads/produtor/produtor.iml" filepath="$USER_HOME$/Downloads/produtor/produtor.iml" />
+    </modules>
+  </component>
+</project>
