@@ -6,19 +6,26 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="localizacao" />
         <module name="auditoria" />
         <module name="produtor" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="auditoria" target="17" />
+      <module name="auditoria (1)" target="17" />
+      <module name="localizacao" target="17" />
       <module name="produtor" target="17" />
+      <module name="produtor (1)" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="auditoria" options="-parameters" />
+      <module name="auditoria (1)" options="-parameters" />
+      <module name="localizacao" options="-parameters" />
       <module name="produtor" options="-parameters" />
+      <module name="produtor (1)" options="-parameters" />
     </option>
   </component>
 </project>
