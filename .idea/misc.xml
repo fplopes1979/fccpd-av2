@@ -3,8 +3,9 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$USER_HOME$/Downloads/produtor/pom.xml" />
-        <option value="$USER_HOME$/Downloads/auditoria/pom.xml" />
+        <option value="$PROJECT_DIR$/localizacao/pom.xml" />
+        <option value="$PROJECT_DIR$/auditoria/pom.xml" />
+        <option value="$PROJECT_DIR$/produtor/pom.xml" />
       </list>
     </option>
   </component>
