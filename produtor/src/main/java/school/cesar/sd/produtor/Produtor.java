@@ -24,6 +24,7 @@ public class Produtor implements CommandLineRunner {
         String estacao;
         String evento;
         String json;
+        String routingKey = "1234";
 
         ObjectMapper mapper = new ObjectMapper();
 
@@ -32,7 +33,7 @@ public class Produtor implements CommandLineRunner {
             System.out.print("Informe a estação de origem: ");
             estacao = sc.nextLine();
 
-            System.out.print("Conteúdo da mensagem: ");
+            System.out.print("Evento: ");
             evento = sc.nextLine();
 
             long timestamp = System.currentTimeMillis();
@@ -40,7 +41,14 @@ public class Produtor implements CommandLineRunner {
             Message msg = new Message(estacao, timestamp, evento);
             json = mapper.writeValueAsString(msg);
             rabbitTemplate.convertAndSend("fanout-exchange", "", json);
-            System.out.println("Mensagem enviada!");
+
+            if (Objects.equals(evento, "power-on") || Objects.equals(evento, "power-off")) {
+
+                rabbitTemplate.convertAndSend("direct-exchange", routingKey, json);
+                System.out.println("-- Mensagem enviada para backend de localização --");
+            }
+
+            System.out.println("-- Mensagem enviada para backend de auditoria --");
             System.out.println("---------------------------------------");
             System.out.println();
 
