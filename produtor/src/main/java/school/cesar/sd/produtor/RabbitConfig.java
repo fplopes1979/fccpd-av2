@@ -12,6 +12,8 @@ public class RabbitConfig {
     static final String queueName = "school-queue";
     static final String directQueueName = "direct-queue";
 
+    static final String routingKey = "12345";
+
     @Bean
     Queue queue() {
 
@@ -45,7 +47,7 @@ public class RabbitConfig {
     @Bean
     Binding directBinding(Queue directQueue, DirectExchange directExchange) {
 
-        return BindingBuilder.bind(directQueue).to(directExchange).withQueueName();
+        return BindingBuilder.bind(directQueue).to(directExchange).with(routingKey);
     }
 
 

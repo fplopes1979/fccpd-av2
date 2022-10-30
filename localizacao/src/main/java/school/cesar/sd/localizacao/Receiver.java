@@ -10,7 +10,7 @@ public class Receiver {
     public void receiveMessage(String message) throws JsonProcessingException {
 
         System.out.println("Mensagem recebida: <" + message + ">" + " em formato JSON.");
-        System.out.println("Fazendo o unmarshalling...");
+        System.out.println("Unmarshalling...");
 
         ObjectMapper mapper = new ObjectMapper();
         Message msg = mapper.readValue(message, Message.class);
