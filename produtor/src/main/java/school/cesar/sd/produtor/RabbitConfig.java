@@ -38,7 +38,7 @@ public class RabbitConfig {
         return new FanoutExchange(fanoutExchangeName);
     }
 
-    @Bean
+    /*@Bean
     Binding binding(Queue queue, FanoutExchange exchange) {
 
         return BindingBuilder.bind(queue).to(exchange);
@@ -48,7 +48,7 @@ public class RabbitConfig {
     Binding directBinding(Queue directQueue, DirectExchange directExchange) {
 
         return BindingBuilder.bind(directQueue).to(directExchange).with(routingKey);
-    }
+    }*/
 
 
 }
