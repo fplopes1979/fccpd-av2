@@ -45,10 +45,11 @@ public class Produtor implements CommandLineRunner {
             if (Objects.equals(evento, "power-on") || Objects.equals(evento, "power-off")) {
 
                 rabbitTemplate.convertAndSend("direct-exchange", routingKey, json);
-                System.out.println("-- Mensagem enviada para backend de localização --");
             }
 
-            System.out.println("-- Mensagem enviada para backend de auditoria --");
+            System.out.println();
+            System.out.println("---------------------------------------");
+            System.out.println("-- Mensagem enviada --");
             System.out.println("---------------------------------------");
             System.out.println();
 

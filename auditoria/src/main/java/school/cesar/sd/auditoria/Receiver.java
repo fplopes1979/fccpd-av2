@@ -9,6 +9,7 @@ public class Receiver {
 
     public void receiveMessage(String message) throws JsonProcessingException {
 
+        System.out.println();
         System.out.println("Mensagem recebida: <" + message + ">" + " em formato JSON.");
         System.out.println("Unmarshalling...");
 
