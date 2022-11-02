@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/auditoria/auditoria.iml" filepath="$PROJECT_DIR$/auditoria/auditoria.iml" />
+      <module fileurl="file://$PROJECT_DIR$/consumidor/consumidor.iml" filepath="$PROJECT_DIR$/consumidor/consumidor.iml" />
       <module fileurl="file://$PROJECT_DIR$/fccpd.iml" filepath="$PROJECT_DIR$/fccpd.iml" />
       <module fileurl="file://$PROJECT_DIR$/localizacao/localizacao.iml" filepath="$PROJECT_DIR$/localizacao/localizacao.iml" />
       <module fileurl="file://$PROJECT_DIR$/produtor/produtor.iml" filepath="$PROJECT_DIR$/produtor/produtor.iml" />

@@ -9,11 +9,13 @@
         <module name="localizacao" />
         <module name="auditoria" />
         <module name="produtor" />
+        <module name="consumidor" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="auditoria" target="17" />
       <module name="auditoria (1)" target="17" />
+      <module name="consumidor" target="17" />
       <module name="localizacao" target="17" />
       <module name="produtor" target="17" />
       <module name="produtor (1)" target="17" />
@@ -23,6 +25,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="auditoria" options="-parameters" />
       <module name="auditoria (1)" options="-parameters" />
+      <module name="consumidor" options="-parameters" />
       <module name="localizacao" options="-parameters" />
       <module name="produtor" options="-parameters" />
       <module name="produtor (1)" options="-parameters" />

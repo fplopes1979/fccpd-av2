@@ -12,9 +12,11 @@ public class RabbitConfig {
     static final String queueName = "school-queue";
     static final String directQueueName = "direct-queue";
 
-    static final String routingKey = "12345";
+    static final String requestResponseQueueName = "request-response";
 
-    @Bean
+    static final String routingKey = "1234";
+
+    /*@Bean
     Queue queue() {
 
         return new Queue(queueName, false);
@@ -27,6 +29,12 @@ public class RabbitConfig {
     }
 
     @Bean
+    Queue requestResponseQueue() {
+
+        return new Queue(requestResponseQueueName, false);
+    }
+
+    @Bean
     DirectExchange directExchange() {
 
         return new DirectExchange(directExchangeName);
@@ -36,19 +44,6 @@ public class RabbitConfig {
     FanoutExchange exchange(){
 
         return new FanoutExchange(fanoutExchangeName);
-    }
-
-    /*@Bean
-    Binding binding(Queue queue, FanoutExchange exchange) {
-
-        return BindingBuilder.bind(queue).to(exchange);
-    }
-
-    @Bean
-    Binding directBinding(Queue directQueue, DirectExchange directExchange) {
-
-        return BindingBuilder.bind(directQueue).to(directExchange).with(routingKey);
     }*/
-
 
 }

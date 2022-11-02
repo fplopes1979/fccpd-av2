@@ -15,23 +15,19 @@ public class Produtor implements CommandLineRunner {
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
+    Scanner sc = new Scanner(System.in);
+
+    String estacao = "001";
+    String evento;
+    String json;
+    String routingKey = "1234";
+
+    ObjectMapper mapper = new ObjectMapper();
+
     @Override
     public void run(String... args) throws Exception {
 
-        Scanner sc = new Scanner(System.in);
-
-        String escolha = "S";
-        String estacao;
-        String evento;
-        String json;
-        String routingKey = "1234";
-
-        ObjectMapper mapper = new ObjectMapper();
-
         while(true) {
-
-            System.out.print("Informe a estação de origem: ");
-            estacao = sc.nextLine();
 
             System.out.print("Evento: ");
             evento = sc.nextLine();
@@ -46,6 +42,9 @@ public class Produtor implements CommandLineRunner {
 
                 rabbitTemplate.convertAndSend("direct-exchange", routingKey, json);
             }
+
+            String response = (String) rabbitTemplate.convertSendAndReceive("request-response", json);
+            System.out.println(response);
 
             System.out.println();
             System.out.println("---------------------------------------");
