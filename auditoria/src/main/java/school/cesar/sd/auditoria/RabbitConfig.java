@@ -13,27 +13,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class RabbitConfig {
-
-    static final String fanoutExchangeName = "fanout-exchange";
-    static final String queueName = "auditoria-queue";
-
-    @Bean
-    Queue queue() {
-
-        return new Queue(queueName, false);
-    }
-
-    @Bean
-    FanoutExchange exchange() {
-
-        return new FanoutExchange(fanoutExchangeName);
-    }
-
-    @Bean
-    Binding binding(Queue queue, FanoutExchange exchange) {
-
-        return BindingBuilder.bind(queue).to(exchange);
-    }
+    static final String allQueueName = "all-queue";
 
     @Bean
     SimpleMessageListenerContainer container(ConnectionFactory connectionFactory, MessageListenerAdapter listenerAdapter) {
@@ -41,7 +21,7 @@ public class RabbitConfig {
         SimpleMessageListenerContainer container = new SimpleMessageListenerContainer();
 
         container.setConnectionFactory(connectionFactory);
-        container.setQueueNames(queueName);
+        container.setQueueNames(allQueueName);
         container.setMessageListener(listenerAdapter);
 
         return container;

@@ -6,23 +6,39 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class RabbitConfig {
+    static final String allQueueName = "all-queue";
+    static final String localQueueName = "local-queue";
+    static final String topicExchangeName = "topic-exchange";
 
-    static final String fanoutExchangeName = "fanout-exchange";
-    static final String directExchangeName = "direct-exchange";
-    static final String queueName = "school-queue";
-    static final String directQueueName = "direct-queue";
-
-    static final String requestResponseQueueName = "request-response";
-
-    static final String routingKey = "1234";
-
-    /*@Bean
-    Queue queue() {
-
-        return new Queue(queueName, false);
+    @Bean
+    TopicExchange topicExchange() {
+        return new TopicExchange(topicExchangeName);
     }
 
     @Bean
+    Queue allQueue() {
+
+        return new Queue(allQueueName, false);
+    }
+
+    @Bean
+    Binding allBinding(Queue allQueue, TopicExchange exchange) {
+
+        return BindingBuilder.bind(allQueue).to(exchange).with("#");
+    }
+
+    @Bean
+    Queue localQueue() {
+        return new Queue(localQueueName, false);
+    }
+
+    @Bean
+    Binding localBinding(Queue localQueue, TopicExchange exchange) {
+
+        return BindingBuilder.bind(localQueue).to(exchange).with("local.*");
+    }
+
+    /*@Bean
     Queue directQueue() {
 
         return new Queue(directQueueName, false);

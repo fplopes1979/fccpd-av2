@@ -20,7 +20,7 @@ public class Produtor implements CommandLineRunner {
     String estacao = "001";
     String evento;
     String json;
-    String routingKey = "1234";
+    String routingKey = "#";
 
     ObjectMapper mapper = new ObjectMapper();
 
@@ -36,15 +36,13 @@ public class Produtor implements CommandLineRunner {
 
             Message msg = new Message(estacao, timestamp, evento);
             json = mapper.writeValueAsString(msg);
-            rabbitTemplate.convertAndSend("fanout-exchange", "", json);
 
             if (Objects.equals(evento, "power-on") || Objects.equals(evento, "power-off")) {
 
-                rabbitTemplate.convertAndSend("direct-exchange", routingKey, json);
+                routingKey = "local.*";
             }
 
-            String response = (String) rabbitTemplate.convertSendAndReceive("request-response", json);
-            System.out.println(response);
+            rabbitTemplate.convertAndSend("topic-exchange", routingKey, json);
 
             System.out.println();
             System.out.println("---------------------------------------");
