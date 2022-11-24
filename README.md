@@ -17,7 +17,7 @@ utilizando os dados gerados no site CloudAMQP.com, que foi por onde acompanhamos
 Falando rapidamente de cada componente:
 
 - O componente "produtor" ficou responsável pela criação da exchange, das filas e dos bindings necessários para a comunicação com os outros componentes. 
-Além disso, é através dele que, obviamente, as mensagens são produzidas e enviadas para o MoM. 
+ELE DEVE SER O PRIMEIRO A SER EXECUTADO quando da inicialização do programa. Além disso, é através dele que, obviamente, as mensagens são produzidas e enviadas para o MoM. 
 
 - O componente "auditoria", conforme requisitado, está configurado para receber todas as mensagens geradas pelo programa.
 
