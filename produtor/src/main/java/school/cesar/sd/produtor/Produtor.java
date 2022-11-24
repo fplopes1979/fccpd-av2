@@ -20,7 +20,7 @@ public class Produtor implements CommandLineRunner {
     String estacao = "001";
     String evento;
     String json;
-    String routingKey = "#";
+    String routingKey = "consumer.*";
 
     ObjectMapper mapper = new ObjectMapper();
 
@@ -49,6 +49,8 @@ public class Produtor implements CommandLineRunner {
             System.out.println("-- Mensagem enviada --");
             System.out.println("---------------------------------------");
             System.out.println();
+
+            routingKey = "consumer.*";
 
         }
     }

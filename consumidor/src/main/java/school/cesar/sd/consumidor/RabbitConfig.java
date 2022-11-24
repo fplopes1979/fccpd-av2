@@ -15,26 +15,15 @@ public class RabbitConfig {
 
     static String RandGeneratedStr() {
 
-        // a list of characters to choose from in form of a string
-
         String AlphaNumericStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvxyz0123456789";
-
-        // creating a StringBuffer size of AlphaNumericStr
-
         StringBuilder s = new StringBuilder(10);
 
         int i;
 
         for (i = 0; i < 10; i++) {
 
-            //generating a random number using math.random()
-
             int ch = (int) (AlphaNumericStr.length() * Math.random());
-
-            //adding Random character one by one at the end of s
-
             s.append(AlphaNumericStr.charAt(ch));
-
         }
 
         return s.toString();
@@ -57,7 +46,7 @@ public class RabbitConfig {
     @Bean
     Binding tempBinding(Queue tempQueue, TopicExchange topicExchange) {
 
-        return BindingBuilder.bind(tempQueue).to(topicExchange).with("#");
+        return BindingBuilder.bind(tempQueue).to(topicExchange).with("consumer.*");
     }
 
     @Bean

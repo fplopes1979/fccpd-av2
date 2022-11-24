@@ -38,28 +38,4 @@ public class RabbitConfig {
         return BindingBuilder.bind(localQueue).to(exchange).with("local.*");
     }
 
-    /*@Bean
-    Queue directQueue() {
-
-        return new Queue(directQueueName, false);
-    }
-
-    @Bean
-    Queue requestResponseQueue() {
-
-        return new Queue(requestResponseQueueName, false);
-    }
-
-    @Bean
-    DirectExchange directExchange() {
-
-        return new DirectExchange(directExchangeName);
-    }
-
-    @Bean
-    FanoutExchange exchange(){
-
-        return new FanoutExchange(fanoutExchangeName);
-    }*/
-
 }
