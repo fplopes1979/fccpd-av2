@@ -12,31 +12,15 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitConfig {
 
-    static final String directExchangeName = "direct-exchange";
-    static final String directQueueName = "direct-queue";
-    static final String routingKey = "1234";
-    @Bean
-    Queue queue() {
+    static final String localQueueName = "local-queue";
 
-        return new Queue(directQueueName, false);
-    }
-    @Bean
-    DirectExchange exchange() {
-
-        return new DirectExchange(directExchangeName);
-    }
-    @Bean
-    Binding binding(Queue queue, DirectExchange exchange) {
-
-        return BindingBuilder.bind(queue).to(exchange).with(routingKey);
-    }
     @Bean
     SimpleMessageListenerContainer container(ConnectionFactory connectionFactory, MessageListenerAdapter listenerAdapter) {
 
         SimpleMessageListenerContainer container = new SimpleMessageListenerContainer();
 
         container.setConnectionFactory(connectionFactory);
-        container.setQueueNames(directQueueName);
+        container.setQueueNames(localQueueName);
         container.setMessageListener(listenerAdapter);
 
         return container;
